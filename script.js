@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolioData = [
         {
             title: "《宝硕流光》",
-            videoSrc: "https://raw.githubusercontent.com/Novaase/my-web/master/video/baoshuo.mp4",
+            videoSrc: "https://github.com/Novaase/my-web/tree/master/video/baoshuo.mp4",
             desc: "一只故宫御猫被银杏叶牵引，闯入三百年前的乾隆秘境 —— 当玺印、礼器、文房、佛供等宫廷重器随它的脚步逐一巨型化，小小猫咪化身探险者，在如山般巍峨的文物间穿梭仰望。影片以萌趣治愈的视角，串联清代祭祀、文房、藏传佛教等珍贵文物，在奇幻巨型化的视觉奇观里，既保留文物的庄严与历史厚重，又用轻盈可爱的叙事打破文博题材的传播门槛，让沉睡百年的国宝在光影中 “活” 起来，带观众沉浸式感受乾隆一朝的盛世风华与匠心造物之美。",
             storyboards: [
                 "./image/qianlongwenwu/1.png",
