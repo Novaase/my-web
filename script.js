@@ -20,17 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Video Modal Logic & Dynamic Content (Attached to Portfolio Grid Items)
     const gridItems = document.querySelectorAll('.grid-item');
     const modal = document.getElementById('videoModal');
+    const videoContainer = document.getElementById('videoContainer');
     const closeModal = document.querySelector('.close-modal');
     const modalVideo = document.getElementById('modalVideo');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const storyboardGrid = document.getElementById('storyboardGrid');
 
-    // Portfolio Data
+    // Portfolio Data            
     const portfolioData = [
         {
             title: "《宝硕流光》",
-            videoSrc: "https://media.githubusercontent.com/media/Novaase/my-web/master/video/baoshuo.mp4",
+            videoSrc: "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116633091770207&bvid=BV1WYG46UEp9&cid=38594022229&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>",
             desc: "一只故宫御猫被银杏叶牵引，闯入三百年前的乾隆秘境 —— 当玺印、礼器、文房、佛供等宫廷重器随它的脚步逐一巨型化，小小猫咪化身探险者，在如山般巍峨的文物间穿梭仰望。影片以萌趣治愈的视角，串联清代祭祀、文房、藏传佛教等珍贵文物，在奇幻巨型化的视觉奇观里，既保留文物的庄严与历史厚重，又用轻盈可爱的叙事打破文博题材的传播门槛，让沉睡百年的国宝在光影中 “活” 起来，带观众沉浸式感受乾隆一朝的盛世风华与匠心造物之美。",
             storyboards: [
                 "./image/qianlongwenwu/1.png",
@@ -41,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "《大唐生活美学》",
-            videoSrc: "https://media.githubusercontent.com/media/Novaase/my-web/master/video/datang.mp4",
+            videoSrc: "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116633091768940&bvid=BV1WYG46UEBc&cid=38594085426&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>",
             desc: "本片为奉贤博物馆年度特展「露华浓深 —— 大唐生活美学展」官方宣传影片，以视觉化叙事，全景呈现唐代生活美学的璀璨风华与当代转译。从服饰妆容、茶酒香食、礼乐诗书三个维度，再现唐人衣食住行、雅趣日常与丝路交融的开放气象。",
-            storyboards: [
+            storyboards: [    
                 "./image/datang/1.jpg",
                 "./image/datang/2.jpg",
                 "./image/datang/3.jpg",
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "《锅圈有条“龙”》",
-            videoSrc: "https://media.githubusercontent.com/media/Novaase/my-web/master/video/guoquan.mp4",
+            videoSrc: "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116633091704932&bvid=BV1AYG46UEWN&cid=38594086907&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> ",
             desc: "锅圈食汇推出「烧烤一条龙」主题广告，联动奶龙 IP 合规呈现，通过发布会场景与洗脑口播，传递 “不用买洗切配、不用凑局张罗” 的便捷优势，解锁随时随地的烧烤快乐！",
             storyboards: [
                 "./image/guoquan/1.png",
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "AIGC改编短剧《镜花缘》轩辕国篇",
-            videoSrc: "https://media.githubusercontent.com/media/Novaase/my-web/master/video/AIGC.mp4",
+            videoSrc: "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116633091835989&bvid=BV1CYG46UEnK&cid=38594020193&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>",
             desc: "改编片段旨在通过不同的人物之间的交流，展现不同文化差异和人物个性，使短剧在AIGC画面更加丰富的同时主题更加深刻和有内涵。以现代视角诠释《镜花缘》 ，保留 “现实批判” 内核，用当代叙事和视听语言传递国际关系、平等和谐等思想。创作者以人文底蕴优化内容，实现技术与艺术融合。",
             storyboards: [
                 "./image/jinghuayuan/1.png",
@@ -82,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data) {
                 modalTitle.innerText = data.title;
                 modalDesc.innerText = data.desc;
-                modalVideo.src = data.videoSrc;
+                
+                videoContainer.innerHTML = data.videoSrc;
                 
                 // Render Storyboards
                 storyboardGrid.innerHTML = '';
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 modal.classList.add('active');
-                modalVideo.play().catch(e => console.log("Autoplay prevented"));
+
             }
         });
     });
@@ -116,10 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeVideoModal() {
         modal.classList.remove('active');
-        modalVideo.pause();
-        setTimeout(() => {
-            modalVideo.currentTime = 0;
-        }, 300);
+        videoContainer.innerHTML = '';
     }
     
     document.addEventListener('keydown', (e) => {
