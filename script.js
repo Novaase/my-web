@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('videoModal');
     const videoContainer = document.getElementById('videoContainer');
     const closeModal = document.querySelector('.close-modal');
-    const modalVideo = document.getElementById('modalVideo');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const storyboardGrid = document.getElementById('storyboardGrid');
@@ -118,10 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeVideoModal() {
         modal.classList.remove('active');
-        modalVideo.pause();
-        setTimeout(() => {
-            modalVideo.currentTime = 0;
-        }, 300);
+        videoContainer.innerHTML = '';
     }
     
     document.addEventListener('keydown', (e) => {
