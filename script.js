@@ -118,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeVideoModal() {
         modal.classList.remove('active');
-        videoContainer.innerHTML = '';
+        modalVideo.pause();
+        setTimeout(() => {
+            modalVideo.currentTime = 0;
+        }, 300);
     }
     
     document.addEventListener('keydown', (e) => {
